@@ -59,3 +59,14 @@ std::optional<UINT> D3D12Helper::getMaxMultisampleQualityLevel(const Microsoft::
 
     return max_multisample_quality_level - 1;
 }
+
+D3D12_HEAP_PROPERTIES D3D12Helper::createCommonHeapProperties(D3D12_HEAP_TYPE heap_type) noexcept {
+    D3D12_HEAP_PROPERTIES heap_properties = { };
+    heap_properties.Type = heap_type;
+    heap_properties.CPUPageProperty = D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+    heap_properties.MemoryPoolPreference = D3D12_MEMORY_POOL_UNKNOWN;
+    heap_properties.CreationNodeMask = 0;
+    heap_properties.VisibleNodeMask = 0;
+
+    return heap_properties;
+}
